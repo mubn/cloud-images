@@ -1,0 +1,18 @@
+{
+  "variables": {
+    "token": ""
+  },
+  "builders": [
+    {
+      "type": "hcloud",
+      "token": "{{ user `token` }}",
+      "image": "ubuntu-18.04",
+      "location": "nbg1",
+      "server_name": "mail",
+      "server_type": "cx11",
+      "ssh_username": "ubuntu",
+      "ssh_keys": "dell",
+      "snapshot_name": "mail_{{ timestamp }}"
+    }
+  ]
+}
