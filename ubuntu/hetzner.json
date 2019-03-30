@@ -1,6 +1,7 @@
 {
   "variables": {
-    "token": ""
+    "version": "",
+    "token": "XOVDq7k3smxEGyJZ7UJ6KZD2MivshAAFu9HGbaf7lLwTXjzQ7iL8Su2lXVmfZmcF"
   },
   "builders": [
     {
@@ -8,11 +9,11 @@
       "token": "{{ user `token` }}",
       "image": "ubuntu-18.04",
       "location": "nbg1",
-      "server_name": "mail",
+      "server_name": "ubuntu",
       "server_type": "cx11",
       "ssh_username": "ubuntu",
       "ssh_keys": "dell",
-      "snapshot_name": "mail_{{ timestamp }}"
+      "snapshot_name": "ubuntu_18_{{ user `version` }}"
     }
   ]
 }

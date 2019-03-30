@@ -1,0 +1,47 @@
+{
+  "variables": {
+    "version": ""
+  },
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "guest_os_type": "Ubuntu_64",
+      "iso_url": "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.2-server-amd64.iso",
+      "iso_checksum": "a2cb36dc010d98ad9253ea5ad5a07fd6b409e3412c48f1860536970b073c98f5",
+      "iso_checksum_type": "sha256",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "http_directory": "http",
+      "boot_wait": "5s",
+      "disk_size": 10240,
+      "headless": true,
+      "ssh_wait_timeout": "10000s",
+      "boot_command": [
+        "<enter><wait><f6><esc><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+        "/install/vmlinuz noapic ",
+        "initrd=/install/initrd.gz ",
+        "debian-installer=de_DE auto locale=de_DE kbd-chooser/method=de ",
+        "console-setup/ask_detect=false ",
+        "console-setup/layoutcode=de ",
+        "console-setup/modelcode=de ",
+        "debconf/frontend=noninteractive ",
+        "debian-installer=de_DE ",
+        "fb=false ",
+        "initrd=/install/initrd.gz ",
+        "priority=critical ",
+        "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+        "<enter>"
+      ],
+      "vboxmanage": [
+        ["modifyvm", "{{.Name}}", "--audio", "none"],
+        ["modifyvm", "{{.Name}}", "--usb", "off"],
+        ["modifyvm", "{{.Name}}", "--vram", "12"],
+        ["modifyvm", "{{.Name}}", "--vrde", "off"],
+        ["modifyvm", "{{.Name}}", "--memory", 2048],
+        ["modifyvm", "{{.Name}}", "--cpus", 2]
+      ],
+      "vm_name": "Ubuntu",
+      "shutdown_command": "echo 'packer' | sudo -S shutdown -P now"
+    }
+  ]
+}
