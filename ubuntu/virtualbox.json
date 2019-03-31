@@ -9,8 +9,8 @@
       "iso_url": "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.2-server-amd64.iso",
       "iso_checksum": "a2cb36dc010d98ad9253ea5ad5a07fd6b409e3412c48f1860536970b073c98f5",
       "iso_checksum_type": "sha256",
-      "ssh_username": "vagrant",
-      "ssh_password": "vagrant",
+      "ssh_username": "ubuntu",
+      "ssh_password": "ubuntu",
       "http_directory": "http",
       "boot_wait": "5s",
       "disk_size": 10240,
@@ -42,6 +42,17 @@
       ],
       "vm_name": "Ubuntu",
       "shutdown_command": "echo 'packer' | sudo -S shutdown -P now"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo 'ubuntu' | sudo -S -E sh {{.Path}}",
+      "scripts": [
+        "./scripts/update.sh",
+        "./scripts/install.sh",
+        "./scripts/cleanup.sh"
+      ]
     }
   ]
 }

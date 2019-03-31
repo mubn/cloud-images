@@ -1,7 +1,7 @@
 {
   "variables": {
-    "version": "",
-    "token": "XOVDq7k3smxEGyJZ7UJ6KZD2MivshAAFu9HGbaf7lLwTXjzQ7iL8Su2lXVmfZmcF"
+    "version": "1",
+    "token": ""
   },
   "builders": [
     {
@@ -12,7 +12,7 @@
       "server_name": "ubuntu",
       "server_type": "cx11",
       "ssh_username": "ubuntu",
-      "ssh_keys": "dell",
+      "ssh_keys": ["dell"],
       "snapshot_name": "ubuntu_18_{{ user `version` }}"
     }
   ]
