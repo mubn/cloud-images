@@ -5,6 +5,7 @@
   },
   "builders": [
     {
+      "name": "hetzner",
       "type": "hcloud",
       "token": "{{ user `token` }}",
       "image": "ubuntu-18.04",
@@ -16,6 +17,7 @@
       "snapshot_name": "ubuntu_18_{{ user `version` }}"
     },
     {
+      "name": "virtualbox",
       "type": "virtualbox-iso",
       "guest_os_type": "Ubuntu_64",
       "iso_url": "http://cdimage.ubuntu.com/ubuntu/releases/bionic/release/ubuntu-18.04.2-server-amd64.iso",
