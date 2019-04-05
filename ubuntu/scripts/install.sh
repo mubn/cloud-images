@@ -1,3 +1,3 @@
 #!/bin/sh
 
-apt-get -y install cloud-init
+apt-get -y install python

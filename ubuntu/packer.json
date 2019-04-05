@@ -1,8 +1,20 @@
 {
   "variables": {
-    "version": ""
+    "version": "1.1",
+    "token": ""
   },
   "builders": [
+    {
+      "type": "hcloud",
+      "token": "{{ user `token` }}",
+      "image": "ubuntu-18.04",
+      "location": "nbg1",
+      "server_name": "ubuntu",
+      "server_type": "cx11",
+      "ssh_username": "root",
+      "ssh_keys": "dell",
+      "snapshot_name": "ubuntu_18_{{ user `version` }}"
+    },
     {
       "type": "virtualbox-iso",
       "guest_os_type": "Ubuntu_64",
@@ -35,7 +47,7 @@
       "vboxmanage": [
         ["modifyvm", "{{.Name}}", "--audio", "none"],
         ["modifyvm", "{{.Name}}", "--usb", "off"],
-        ["modifyvm", "{{.Name}}", "--vram", "12"],
+        ["modifyvm", "{{.Name}}", "--vram", "4"],
         ["modifyvm", "{{.Name}}", "--vrde", "off"],
         ["modifyvm", "{{.Name}}", "--memory", 2048],
         ["modifyvm", "{{.Name}}", "--cpus", 2]

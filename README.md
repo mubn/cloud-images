@@ -2,6 +2,7 @@
 
 Cloud image configs for Packer
 
-## Required Builders
+## Requirements
 
-- [Hetzner Cloud](https://github.com/m110/packer-builder-hcloud)
+- [Packer](https://www.packer.io/intro/getting-started/install.html)
+- [VirutalBox](https://www.virtualbox.org/wiki/Downloads)
